@@ -30,7 +30,8 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.get('/search/:word', search.search);
+app.get('/search/:word', search.get);
+app.post('/search', search.search);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

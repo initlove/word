@@ -1,3 +1,8 @@
+form(name="input", action="/search", method="post")
+  | Search :
+  input(type="text", name="word")
+  input(type="submit", value="Submit")
+
 ul
     for file in words
         li

@@ -47,11 +47,17 @@ function find_word(db, query){
 };
 
 var db = null;
-exports.search = function(req, res){
+exports.get = function(req, res) {
     if (db == null)
         db = load_file ("./data/mba5500");
     var array = find_word (db, req.params.word);
     res.render('search', { title: "word find", words: array}); 
 };
 
-var array = find_word(db, "res");
+exports.search = function(req, res){
+    if (db == null)
+        db = load_file ("./data/mba5500");
+    var array = find_word (db, req.body.word);
+    res.render('search', { title: "word find", words: array}); 
+};
+
