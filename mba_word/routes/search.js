@@ -50,9 +50,8 @@ var db = null;
 exports.search = function(req, res){
     if (db == null)
         db = load_file ("./data/mba5500");
-    console.log (db.length);
     var array = find_word (db, req.params.word);
-    res.render('index', { title: array[0].w })
+    res.render('search', { title: "word find", word: array[0].w, annotation: array[0].a })
 };
 
 var array = find_word(db, "res");
